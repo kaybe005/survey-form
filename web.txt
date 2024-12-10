@@ -1,0 +1,260 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>freeCodeCamp Survey Form</title>
+  </head>
+  <body>
+    <h1 id="title">freeCodeCamp Survey Form</h1>
+    <p id="description">Thank you for taking the time to help us improve the platform</p>
+
+    <section>
+      <form id="survey-form" action="submit-survey" method="POST"> 
+        <label for="name" id="name-label">Name</label>
+        <input id="name" type="text" placeholder="Enter your name" required>
+
+        <label for="email" id="email-label">Email</label>
+        <input id="email" type="email" placeholder="Enter your Email" required>
+
+        <label for="number" id="number-label">Age (optional)</label>
+        <input id="number" type="number" min="10" max="100" placeholder="Age" />
+
+        <h2>Which option best describes your current role?</h2>
+        <select id="dropdown" name="options">
+          <option>Select current role</option>
+          <option>Student</option>
+          <option>Full Time Job</option>
+          <option>Full Time Learner</option>
+          <option>Prefer not to say</option>
+          <option>Other</option>
+        </select>
+
+        <h2>Would you recommend freeCodeCamp to a friend?</h2>
+        <label><input type="radio" name="recommend" value="definitely" checked> Definitely</label>
+        <label><input type="radio" name="recommend" value="maybe"> Maybe</label>
+        <label><input type="radio" name="recommend" value="not-sure"> Not sure </label>
+
+        <h2>What is your favourite feature of freeCodeCamp?</h2>
+        <select>
+          <option>Select an option</option>
+          <option>Challenges</option>
+          <option>Projects</option>
+          <option>Community</option>
+          <option>Open Source</option>
+        </select>
+
+        <h2>What would you like to see improved?</h2>
+        <p>(Check all that apply)</p>
+        <label><input type="checkbox" name="improvements" value="frontend"> Front-end Projects</label>
+        <label><input type="checkbox" name="improvements" value="backend"> Back-end Projects</label>
+        <label><input type="checkbox" name="improvements" value="data"> Data Visualization</label>
+        <label><input type="checkbox" name="improvements" value="challenges"> Challenges</label>
+        <label><input type="checkbox" name="improvements" value="opensrc"> Open Source Community</label>
+        <label><input type="checkbox" name="improvements" value="gitter"> Gitter help rooms</label>
+        <label><input type="checkbox" name="improvements" value="videos"> Videos</label>
+        <label><input type="checkbox" name="improvements" value="meetups"> City Meetups</label>
+        <label><input type="checkbox" name="improvements" value="wiki"> Wiki</label>
+        <label><input type="checkbox" name="improvements" value="forums"> Forums</label>
+        <label><input type="checkbox" name="improvements" value="courses"> Additional Courses</label>
+
+        <h2>Any comments or suggestions?</h2>
+        <textarea id="comments" placeholder="Enter your comment here..." rows="5" cols="40"></textarea>
+
+        <button type="submit" id="submit">Submit</button>
+      </form>
+    </section>
+
+  </body>
+  <footer>
+    <p>&copy; 2024 <a href="https://github.com/kaybe005" target="_blank">Kalash Bijukchhe</a>. All Rights Reserved.</p>
+  </footer>
+</html>
+
+
+** end of undefined **
+
+** start of undefined **
+
+body {
+  font-family: arial, sans-serif;
+  background-color: #f4f4f9;
+  background-image: url("https://media.istockphoto.com/id/1185394248/photo/black-suede-texture-for-background.jpg?s=612x612&w=0&k=20&c=TwtykU4V-YHt5wYxkEurtakhRFL10A2krhHED-LZySQ=");
+  background-attachment: fixed;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+#survey-form {
+  max-width: 880px;
+  margin: 20px auto;
+  background: rgba(0,0,0, 0.7);
+  color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  text-align: left;
+  backdrop-filter: blur(10px);
+  padding: 15px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    translateY(0);
+  }
+}
+
+#survey-form:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#title {
+  font-size: 2.5em;
+  margin-top: 20px;
+  margin-bottom: 7px;
+  color: #c8ad7f;
+}
+
+#description {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  margin-top: 1px;
+  color: #c8ad7f;
+  font-style: italic;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+  color: #c8ad7f;
+  vertical-align: middle;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  font-size: 1.1em;
+  padding: 7px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  width: 4px;
+  height: 4px;
+  background: #e0e0e0;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  margin-right: 10px;
+  appearance: none;
+  transition: background 0.2s ease;
+  vertical-align: middle;
+}
+
+label > input {
+  margin-right: 10px;
+  display: inline-block; 
+}
+
+h2 {
+  color: #c8ad7f;
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  font-size: 1em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #c8ad7f;
+  color: #000;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: #bca270;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid #c8ad7f;
+  box-shadow: 0 0 8px rgba(0, 191, 255, 0.5);
+  transition: 0.1s;
+}
+
+input::placeholder {
+  color: #d9cbb0;
+  font-size: 0.9rem;
+  font-style: italic;
+  opacity: 0.7;
+  transition: color 0.3s;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+input:valid {
+  border-color: #00c851;
+}
+
+input:invalid {
+  border-color: #ff4444;
+}
+input[type="checkbox"]:checked {
+  background-color: #c8ad7f;
+  border-color: #c8ad7f;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #c8ad7f;
+  font-size: 1em;
+  margin-top: 30px;
+  border-radius: 4px;
+}
+footer p {
+  margin: 0;
+}
+
+footer p a {
+  color: #c8ad7f;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline; 
+}
+
+** end of undefined **
+
